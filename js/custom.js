@@ -34,7 +34,7 @@ $(".calculate").click(function(){
 
 		Histograma(FiltroSort(valoresGraficos.intervalos),valoresGraficos.fi);
 		PolignoFrequencia(valoresGraficos.xi,valoresGraficos.fi,valoresGraficos.H);
-		Ogiva(FiltroSort(valoresGraficos.intervalos),valoresGraficos.fac,valoresGraficos.H);
+		Ogiva(FiltroSort(valoresGraficos.intervalosValor2),valoresGraficos.fac,valoresGraficos.H);
 	}
 });
 function calculate(valores){
