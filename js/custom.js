@@ -156,7 +156,7 @@ function calcularTabela(){
 		valoresGraficos.xi.push(xi);
 		valoresGraficos.fac.push(fac);
 		valoresGraficos.intervalosValor2.push(frequencias[i].valor2);
-
+		console.log(valoresGraficos.intervalos)
 
 		$("#values").append(
 		"<tr><td>"+ frequencias[i].valor1 + "├" + frequencias[i].valor2 + 
@@ -296,15 +296,13 @@ function PolignoFrequencia(xi, fi, H) {
 	});
 }
 
-function Ogiva(fac, intervalosValor2, H) {
+function Ogiva(fac, intervalosValor2) {
 
 	let container = document.getElementById('ogiva');
+	
+	intervalosValor2.unshift(0)
 
-	// let valorArray = (intervalos[0] - H)  > 0 ? (intervalos[0] - H) : 0;
-
-	// fac.unshift(0);
-	intervalosValor2.unshift(0);
-
+	fac.unshift(valoresGraficos.intervalos[0])
 	_chart3 = new Chart(container, {
 	type: 'line',
 	data: {
