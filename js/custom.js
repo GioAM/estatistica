@@ -32,7 +32,7 @@ $(".calculate").click(function(){
 		var valores = $("#valores-media").val().split(',');
 		calculate(valores);
 
-		Histograma(FiltroSort(valoresGraficos.intervalos),valoresGraficos.fi);
+		// Histograma(FiltroSort(valoresGraficos.intervalos),valoresGraficos.fi);
 		PolignoFrequencia(valoresGraficos.xi,valoresGraficos.fi,valoresGraficos.H);
 		Ogiva(FiltroSort(valoresGraficos.intervalosValor2),valoresGraficos.fac,valoresGraficos.H);
 	}
@@ -212,44 +212,44 @@ function FiltroSort(arr) {
 	return arr.sort((a, b) => { return a - b; });
 }
 
-function Histograma(intervalos, fi) {
-	let container = document.getElementById('histograma').getContext('2d');
+// function Histograma(intervalos, fi) {
+// 	let container = document.getElementById('histograma').getContext('2d');
 
-	_chart1 = new Chart(container, {
-		type: 'bar',
-		data: {
-			labels: intervalos.map(String),
-			datasets: [{
-				data: fi,
-				backgroundColor: fi.map(function() {
-					return '#616161'
-				}),
-				borderWidth: 0
-			}]
-		},
-		options: {
-			legend: {
-			display: false
-			},
-			scales: {
-			yAxes: [{
-				ticks: {
-					beginAtZero: true,
-					barPercentage: 1.0,
-					categoryPercentage: 1.0
-				}
-				}],
-			xAxes: [{
-				categoryPercentage: 1,
-				barPercentage: 1,
-				ticks: {
-					beginAtZero: true
-				}
-				}]
-			}
-		}
-	});
-}
+// 	_chart1 = new Chart(container, {
+// 		type: 'bar',
+// 		data: {
+// 			labels: intervalos.map(String),
+// 			datasets: [{
+// 				data: fi,
+// 				backgroundColor: fi.map(function() {
+// 					return '#616161'
+// 				}),
+// 				borderWidth: 0
+// 			}]
+// 		},
+// 		options: {
+// 			legend: {
+// 			display: false
+// 			},
+// 			scales: {
+// 			yAxes: [{
+// 				ticks: {
+// 					beginAtZero: true,
+// 					barPercentage: 1.0,
+// 					categoryPercentage: 1.0
+// 				}
+// 				}],
+// 			xAxes: [{
+// 				categoryPercentage: 1,
+// 				barPercentage: 1,
+// 				ticks: {
+// 					beginAtZero: true
+// 				}
+// 				}]
+// 			}
+// 		}
+// 	});
+// }
 
 function PolignoFrequencia(xi, fi, H) {
 	let container = document.getElementById('poligono_frequencia');
@@ -275,6 +275,10 @@ function PolignoFrequencia(xi, fi, H) {
 	options: {
 		legend: {
 		display: false
+		},
+		title: {
+			display: true,
+			text: 'Polígno de frequência'
 		},
 		scales: {
 		yAxes: [
@@ -316,7 +320,11 @@ function Ogiva(fac, intervalosValor2) {
 	},
 	options: {
 		legend: {
-		display: false
+			display: false
+		},
+		title: {
+			display: true,
+			text: 'Ogiva'
 		},
 		scales: {
 		yAxes: [
