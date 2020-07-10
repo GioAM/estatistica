@@ -107,11 +107,8 @@ function mediana(numeros){
 }
 function moda(numeros){
 	var moda = math.mode(numeros);
-	if(moda < Math.max(numeros)){
-		$('#moda').append(moda)
-	}else{
-		$('#moda').append("amodal")
-	}
+	console.log(moda)
+	$('#moda').append(moda)
 }
 function desvioAmostra(numeros){
 	var desvioAmostra = math.std(numeros);
